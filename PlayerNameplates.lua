@@ -78,7 +78,7 @@ function TRPKN.initPlayerNameplates()
 
 		--{{{ Custom color
 		if getConfigValue(TRPKN.CONFIG.USE_CUSTOM_COLOR) then
-			local customColor = player:GetCustomColor();
+			local customColor = player:GetCustomColorForDisplay();
 			if customColor then
 				nameplate.NameText:SetTextColor(customColor:GetRGB())
 			end
