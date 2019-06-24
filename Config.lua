@@ -37,7 +37,7 @@ function TRPKN.initConfig()
 	TRPKN.CONFIG.PET_NAMES = "kui_nameplates_pet_names";
 	TRPKN.CONFIG.SHOW_OOC_INDICATOR = "kui_nameplates_show_ooc_indicator";
 	TRPKN.CONFIG.ACTIVE_QUERY = "kui_nameplates_active_query";
-	TRPKN.CONFIG.PREFER_OOC_ICON = "kui_nameplates_prefere_ooc_icon";
+	TRPKN.CONFIG.PREFER_OOC_ICON = "kui_nameplates_preferred_ooc_icon";
 	local OOC_ICON = "|TInterface\\COMMON\\Indicator-Red:15:15|t";
 	local OOC_INDICATOR_TYPES = {
 		{loc.CO_TOOLTIP_PREFERRED_OOC_INDICATOR_TEXT .. TRP3_API.Ellyb.ColorManager.RED("[" .. loc.CM_OOC .. "] "), "TEXT"},
