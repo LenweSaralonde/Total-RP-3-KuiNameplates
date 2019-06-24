@@ -37,6 +37,12 @@ function TRPKN.initConfig()
 	TRPKN.CONFIG.PET_NAMES = "kui_nameplates_pet_names";
 	TRPKN.CONFIG.SHOW_OOC_INDICATOR = "kui_nameplates_show_ooc_indicator";
 	TRPKN.CONFIG.ACTIVE_QUERY = "kui_nameplates_active_query";
+	TRPKN.CONFIG.PREFER_OOC_ICON = "kui_nameplates_prefere_ooc_icon";
+	local OOC_ICON = "|TInterface\\COMMON\\Indicator-Red:15:15|t";
+	local OOC_INDICATOR_TYPES = {
+		{loc.CO_TOOLTIP_PREFERRED_OOC_INDICATOR_TEXT .. TRP3_API.Ellyb.ColorManager.RED("[" .. loc.CM_OOC .. "] "), "TEXT"},
+		{loc.CO_TOOLTIP_PREFERRED_OOC_INDICATOR_ICON .. OOC_ICON, "ICON"}
+	}
 	
 	registerConfigKey(TRPKN.CONFIG.ENABLE_NAMEPLATES_CUSTOMIZATION, true);
 	registerConfigKey(TRPKN.CONFIG.DISPLAY_NAMEPLATES_ONLY_IN_CHARACTER, true);
@@ -47,6 +53,7 @@ function TRPKN.initConfig()
 	registerConfigKey(TRPKN.CONFIG.SHOW_TITLES, false);
 	registerConfigKey(TRPKN.CONFIG.SHOW_OOC_INDICATOR, true);
 	registerConfigKey(TRPKN.CONFIG.ACTIVE_QUERY, true);
+	registerConfigKey(TRPKN.CONFIG.PREFER_OOC_ICON, TRP3_Configuration.tooltip_prefere_ooc_icon or "TEXT");
 	
 	registerHandler(TRPKN.CONFIG.ENABLE_NAMEPLATES_CUSTOMIZATION, TRPKN.refreshAllNameplates);
 	registerHandler(TRPKN.CONFIG.DISPLAY_NAMEPLATES_ONLY_IN_CHARACTER, TRPKN.refreshAllNameplates);
@@ -56,6 +63,7 @@ function TRPKN.initConfig()
 	registerHandler(TRPKN.CONFIG.SHOW_TITLES, TRPKN.refreshAllNameplates);
 	registerHandler(TRPKN.CONFIG.PET_NAMES, TRPKN.refreshAllNameplates);
 	registerHandler(TRPKN.CONFIG.SHOW_OOC_INDICATOR, TRPKN.refreshAllNameplates);
+	registerHandler(TRPKN.CONFIG.PREFER_OOC_ICON, TRPKN.refreshAllNameplates);
 	
 	-- Build configuration page
 	registerConfigurationPage({
@@ -112,6 +120,14 @@ function TRPKN.initConfig()
 				title = loc.KNP_SHOW_OOC_INDICATOR,
 				configKey = TRPKN.CONFIG.SHOW_OOC_INDICATOR,
 				dependentOnOptions = { TRPKN.CONFIG.ENABLE_NAMEPLATES_CUSTOMIZATION },
+			},
+			{
+				inherit = "TRP3_ConfigDropDown",
+				title = loc.CO_TOOLTIP_PREFERRED_OOC_INDICATOR,
+				listContent = OOC_INDICATOR_TYPES,
+				configKey = TRPKN.CONFIG.PREFER_OOC_ICON,
+				listWidth = nil,
+				listCancel = true,
 			},
 			{
 				inherit = "TRP3_ConfigCheck",
