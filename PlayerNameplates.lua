@@ -30,6 +30,8 @@ function TRPKN.initPlayerNameplates()
 
 	local profilesRequestByUnitForThisSession = {}
 
+	local CONFIG_COLOR_CONTRAST = "increase_color_contrast";
+
 	local OOC_TEXT_INDICATOR = TRP3_API.Ellyb.ColorManager.RED("[" .. loc.CM_OOC .. "] ");
 	local OOC_ICON_INDICATOR = TRP3_API.Ellyb.Icon([[Interface\COMMON\Indicator-Red]], 15);
 
@@ -108,4 +110,8 @@ function TRPKN.initPlayerNameplates()
 			TRPKN.ShowKuiNameplate(nameplate);
 		end
 	end
+
+	TRP3_API.events.listenToEvent(TRP3_API.events.WORKFLOW_ON_LOADED, function()
+		TRP3_API.configuration.registerHandler(CONFIG_COLOR_CONTRAST, TRPKN.refreshAllNameplates);
+	end)
 end
