@@ -31,7 +31,6 @@ function TRPKN.initConfig()
 	TRPKN.CONFIG.ENABLE_NAMEPLATES_CUSTOMIZATION = "kui_nameplates_enable";
 	TRPKN.CONFIG.DISPLAY_NAMEPLATES_ONLY_IN_CHARACTER = "kui_nameplates_only_in_character";
 	TRPKN.CONFIG.USE_CUSTOM_COLOR = "kui_nameplates_use_custom_color";
-	TRPKN.CONFIG.INCREASE_CONTRAST = "kui_nameplates_increase_contrast";
 	TRPKN.CONFIG.SHOW_TITLES = "kui_nameplates_show_titles";
 	TRPKN.CONFIG.HIDE_NON_ROLEPLAY = "kui_nameplates_hide_non_roleplay";
 	TRPKN.CONFIG.PET_NAMES = "kui_nameplates_pet_names";
@@ -48,7 +47,6 @@ function TRPKN.initConfig()
 	registerConfigKey(TRPKN.CONFIG.DISPLAY_NAMEPLATES_ONLY_IN_CHARACTER, true);
 	registerConfigKey(TRPKN.CONFIG.HIDE_NON_ROLEPLAY, false);
 	registerConfigKey(TRPKN.CONFIG.USE_CUSTOM_COLOR, true);
-	registerConfigKey(TRPKN.CONFIG.INCREASE_CONTRAST, false);
 	registerConfigKey(TRPKN.CONFIG.PET_NAMES, true);
 	registerConfigKey(TRPKN.CONFIG.SHOW_TITLES, false);
 	registerConfigKey(TRPKN.CONFIG.SHOW_OOC_INDICATOR, true);
@@ -59,7 +57,6 @@ function TRPKN.initConfig()
 	registerHandler(TRPKN.CONFIG.DISPLAY_NAMEPLATES_ONLY_IN_CHARACTER, TRPKN.refreshAllNameplates);
 	registerHandler(TRPKN.CONFIG.HIDE_NON_ROLEPLAY, TRPKN.refreshAllNameplates);
 	registerHandler(TRPKN.CONFIG.USE_CUSTOM_COLOR, TRPKN.refreshAllNameplates);
-	registerHandler(TRPKN.CONFIG.INCREASE_CONTRAST, TRPKN.refreshAllNameplates);
 	registerHandler(TRPKN.CONFIG.SHOW_TITLES, TRPKN.refreshAllNameplates);
 	registerHandler(TRPKN.CONFIG.PET_NAMES, TRPKN.refreshAllNameplates);
 	registerHandler(TRPKN.CONFIG.SHOW_OOC_INDICATOR, TRPKN.refreshAllNameplates);
@@ -101,13 +98,6 @@ function TRPKN.initConfig()
 				configKey = TRPKN.CONFIG.USE_CUSTOM_COLOR,
 				dependentOnOptions = { TRPKN.CONFIG.ENABLE_NAMEPLATES_CUSTOMIZATION },
 			},
-			-- We'll do that later.
-			--{
-			--	inherit = "TRP3_ConfigCheck",
-			--	title = loc.KNP_INCREASE_CONTRAST,
-			--	configKey = TRPKN.CONFIG.INCREASE_CONTRAST,
-			--	dependentOnOptions = { TRPKN.CONFIG.ENABLE_NAMEPLATES_CUSTOMIZATION, TRPKN.CONFIG.USE_CUSTOM_COLOR },
-			--},
 			{
 				inherit = "TRP3_ConfigCheck",
 				title = loc.KNP_CUSTOM_TITLES,
