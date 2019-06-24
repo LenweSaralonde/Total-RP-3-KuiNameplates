@@ -30,9 +30,8 @@ function TRPKN.initPlayerNameplates()
 
 	local profilesRequestByUnitForThisSession = {}
 
-	local CONFIG_PREFER_OOC_ICON = "tooltip_prefere_ooc_icon";
 	local OOC_TEXT_INDICATOR = TRP3_API.Ellyb.ColorManager.RED("[" .. loc.CM_OOC .. "] ");
-	local OOC_ICON_INDICATOR = TRP3_API.Ellyb.Icon([[Interface\COMMON\Indicator-Red]], 15)
+	local OOC_ICON_INDICATOR = TRP3_API.Ellyb.Icon([[Interface\COMMON\Indicator-Red]], 15);
 
 	local MAX_TITLE_SIZE = 40;
 
@@ -67,7 +66,7 @@ function TRPKN.initPlayerNameplates()
 		--{{{ Player name
 		local name = player:GetRoleplayingName();
 		if getConfigValue(TRPKN.CONFIG.SHOW_OOC_INDICATOR) and not player:IsInCharacter() then
-			if getConfigValue(CONFIG_PREFER_OOC_ICON) == "TEXT" then
+			if getConfigValue(TRPKN.CONFIG.PREFERRED_OOC_ICON) == "TEXT" then
 				name = OOC_TEXT_INDICATOR .. " " .. name;
 			else
 				name = OOC_ICON_INDICATOR .. " " .. name
@@ -109,8 +108,4 @@ function TRPKN.initPlayerNameplates()
 			TRPKN.ShowKuiNameplate(nameplate);
 		end
 	end
-
-	TRP3_API.events.listenToEvent(TRP3_API.events.WORKFLOW_ON_LOADED, function()
-		TRP3_API.configuration.registerHandler(CONFIG_PREFER_OOC_ICON, TRPKN.refreshAllNameplates);
-	end)
 end
