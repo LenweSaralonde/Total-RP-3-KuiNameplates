@@ -66,7 +66,7 @@ function TRPKN.initPlayerNameplates()
 		--{{{ Player name
 		local name = player:GetRoleplayingName();
 		if getConfigValue(TRPKN.CONFIG.SHOW_OOC_INDICATOR) and not player:IsInCharacter() then
-			if getConfigValue(TRPKN.CONFIG.PREFER_OOC_ICON) == "TEXT" then
+			if getConfigValue(TRPKN.CONFIG.PREFERRED_OOC_ICON) == "TEXT" then
 				name = OOC_TEXT_INDICATOR .. " " .. name;
 			else
 				name = OOC_ICON_INDICATOR .. " " .. name
