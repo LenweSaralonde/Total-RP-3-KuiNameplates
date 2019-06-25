@@ -1,3 +1,16 @@
+# Changelog for version 1.4.2
+
+**This version requires Total RP 3 version 1.6.1 or later.**
+
+## Changed
+
+- The new consolidated setting to increase contrast in General settings is now applied to nameplates.
+
+## Fixed
+
+- The OOC indicator setting is now separate from the tooltip setting to fix an issue when trying to disable the tooltip module.
+- Fixed issues with invisible nameplates or healthbars. (Thanks Kesava !)
+
 # Changelog for version 1.4.1
 
 ## Fixed

@@ -135,8 +135,8 @@ end
 TRP3_API.module.registerModule({
 	name = "Kui|cff9966ffNameplates|r module",
 	description = "Add Total RP 3 customizations to Kui|cff9966ffNameplates|r.",
-	version = 1.3,
+	version = 1.4,
 	id = "trp3_kuinameplates",
 	onStart = onModuleStart,
-	minVersion = 31,
+	minVersion = 66,
 });
