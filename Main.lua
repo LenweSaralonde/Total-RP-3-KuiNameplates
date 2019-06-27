@@ -88,7 +88,7 @@ local function onModuleStart()
 			end
 		end
 
-		if getConfigValue(TRPKN.CONFIG.HIDE_NON_ROLEPLAY) and UnitIsPlayer(nameplate.unit) or UnitIsOtherPlayersPet(nameplate.unit) then
+		if getConfigValue(TRPKN.CONFIG.HIDE_NON_ROLEPLAY) and (UnitIsPlayer(nameplate.unit) or UnitIsOtherPlayersPet(nameplate.unit)) then
 			TRPKN.HideKuiNameplate(nameplate);
 		end
 
