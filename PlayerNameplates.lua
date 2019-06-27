@@ -96,7 +96,10 @@ function TRPKN.initPlayerNameplates()
 			-- TODO Switch to newer API when available
 			-- local title = player:GetFullTitle();
 			local profile = player:GetProfile()
-			local title = profile.characteristics.FT
+			local title;
+			if profile and profile.characteristics then
+				title = profile.characteristics.FT
+			end
 			if title then
 				nameplate.state.guild_text = "<" .. crop(title, MAX_TITLE_SIZE) .. ">";
 			else
