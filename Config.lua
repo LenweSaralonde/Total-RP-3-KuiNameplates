@@ -20,14 +20,14 @@
 local TRPKN = select(2, ...);
 
 function TRPKN.initConfig()
-	
+
 	TRPKN.CONFIG = {};
-	
+
 	local loc = TRP3_API.loc;
 	local registerConfigurationPage = TRP3_API.configuration.registerConfigurationPage;
 	local registerConfigKey = TRP3_API.configuration.registerConfigKey;
 	local registerHandler = TRP3_API.configuration.registerHandler;
-	
+
 	TRPKN.CONFIG.ENABLE_NAMEPLATES_CUSTOMIZATION = "kui_nameplates_enable";
 	TRPKN.CONFIG.DISPLAY_NAMEPLATES_ONLY_IN_CHARACTER = "kui_nameplates_only_in_character";
 	TRPKN.CONFIG.USE_CUSTOM_COLOR = "kui_nameplates_use_custom_color";
@@ -42,7 +42,7 @@ function TRPKN.initConfig()
 		{loc.CO_TOOLTIP_PREFERRED_OOC_INDICATOR_TEXT .. TRP3_API.Ellyb.ColorManager.RED("[" .. loc.CM_OOC .. "] "), "TEXT"},
 		{loc.CO_TOOLTIP_PREFERRED_OOC_INDICATOR_ICON .. OOC_ICON, "ICON"}
 	}
-	
+
 	registerConfigKey(TRPKN.CONFIG.ENABLE_NAMEPLATES_CUSTOMIZATION, true);
 	registerConfigKey(TRPKN.CONFIG.DISPLAY_NAMEPLATES_ONLY_IN_CHARACTER, true);
 	registerConfigKey(TRPKN.CONFIG.HIDE_NON_ROLEPLAY, false);
@@ -52,7 +52,7 @@ function TRPKN.initConfig()
 	registerConfigKey(TRPKN.CONFIG.SHOW_OOC_INDICATOR, true);
 	registerConfigKey(TRPKN.CONFIG.ACTIVE_QUERY, true);
 	registerConfigKey(TRPKN.CONFIG.PREFERRED_OOC_ICON, TRP3_Configuration.tooltip_prefere_ooc_icon or "TEXT");
-	
+
 	registerHandler(TRPKN.CONFIG.ENABLE_NAMEPLATES_CUSTOMIZATION, TRPKN.refreshAllNameplates);
 	registerHandler(TRPKN.CONFIG.DISPLAY_NAMEPLATES_ONLY_IN_CHARACTER, TRPKN.refreshAllNameplates);
 	registerHandler(TRPKN.CONFIG.HIDE_NON_ROLEPLAY, TRPKN.refreshAllNameplates);
@@ -61,7 +61,7 @@ function TRPKN.initConfig()
 	registerHandler(TRPKN.CONFIG.PET_NAMES, TRPKN.refreshAllNameplates);
 	registerHandler(TRPKN.CONFIG.SHOW_OOC_INDICATOR, TRPKN.refreshAllNameplates);
 	registerHandler(TRPKN.CONFIG.PREFERRED_OOC_ICON, TRPKN.refreshAllNameplates);
-	
+
 	-- Build configuration page
 	registerConfigurationPage({
 		id = "main_config_nameplates",
