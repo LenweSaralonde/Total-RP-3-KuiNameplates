@@ -6,6 +6,7 @@
 
 - Fixed a Lua error when the option to show custom titles in the nameplates is enabled.
 - Fixed an issue where pets (hunter/warlock) names would be hidden if you were not hiding OOC names.
+- Fixed a Lua error when using the ![red dot](https://github.com/Ellypse/wow-ui-textures/raw/live/COMMON/Indicator-Red.PNG) icon as the preferred OOC indicator.
 
 ## 1.4.2
 

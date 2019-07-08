@@ -67,7 +67,7 @@ function TRPKN.initPlayerNameplates()
 			if getConfigValue(TRPKN.CONFIG.PREFERRED_OOC_ICON) == "TEXT" then
 				name = OOC_TEXT_INDICATOR .. " " .. name;
 			else
-				name = OOC_ICON_INDICATOR .. " " .. name
+				name = tostring(OOC_ICON_INDICATOR).. " " .. name
 			end
 		end
 		nameplate.state.name = name;
