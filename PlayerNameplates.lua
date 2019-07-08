@@ -58,11 +58,7 @@ function TRPKN.initPlayerNameplates()
 				profilesRequestByUnitForThisSession[characterID] = true
 			end
 
-			if getConfigValue(TRPKN.CONFIG.HIDE_NON_ROLEPLAY) then
-				TRPKN.HideKuiNameplate(nameplate);
-			end
-
-			return false;
+			return;
 		end
 
 		--{{{ Player name
@@ -78,15 +74,6 @@ function TRPKN.initPlayerNameplates()
 		nameplate.NameText:SetText(nameplate.state.name);
 		--}}}
 
-		--{{{ Custom color
-		if getConfigValue(TRPKN.CONFIG.USE_CUSTOM_COLOR) then
-			local customColor = player:GetCustomColorForDisplay();
-			if customColor then
-				nameplate.NameText:SetTextColor(customColor:GetRGB())
-			end
-		end
-		--}}}
-
 		--{{{ Titles
 		if getConfigValue(TRPKN.CONFIG.SHOW_TITLES) then
 			if not nameplate.state.old_guild_text then
@@ -96,7 +83,10 @@ function TRPKN.initPlayerNameplates()
 			-- TODO Switch to newer API when available
 			-- local title = player:GetFullTitle();
 			local profile = player:GetProfile()
-			local title = profile.characteristics.FT
+			local title;
+			if profile and profile.characteristics then
+				title = profile.characteristics.FT
+			end
 			if title then
 				nameplate.state.guild_text = "<" .. crop(title, MAX_TITLE_SIZE) .. ">";
 			else
@@ -109,6 +99,15 @@ function TRPKN.initPlayerNameplates()
 		if getConfigValue(TRPKN.CONFIG.HIDE_NON_ROLEPLAY) then
 			TRPKN.ShowKuiNameplate(nameplate);
 		end
+
+		--{{{ Custom color
+		if getConfigValue(TRPKN.CONFIG.USE_CUSTOM_COLOR) then
+			local customColor = player:GetCustomColorForDisplay();
+			if customColor then
+				nameplate.NameText:SetTextColor(customColor:GetRGB())
+			end
+		end
+		--}}}
 	end
 
 	TRP3_API.events.listenToEvent(TRP3_API.events.WORKFLOW_ON_LOADED, function()
