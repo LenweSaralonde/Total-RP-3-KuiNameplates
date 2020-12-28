@@ -112,12 +112,10 @@ local function onModuleStart()
 
 	mod.RefreshAllNameplates = TRPKN.refreshAllNameplates;
 
-	function mod:Initialise()
-		self:RegisterMessage('Create', 'RefreshAllNameplates');
-		self:RegisterMessage('Show', 'UpdateRPName');
-		self:RegisterMessage('GainedTarget', 'UpdateRPName');
-		self:RegisterMessage('LostTarget', 'UpdateRPName');
-	end
+	mod:RegisterMessage('Create', 'RefreshAllNameplates');
+	mod:RegisterMessage('Show', 'UpdateRPName');
+	mod:RegisterMessage('GainedTarget', 'UpdateRPName');
+	mod:RegisterMessage('LostTarget', 'UpdateRPName');
 
 	-- We listen to the register data update event fired by Total RP 3 when we receive new data
 	-- about a player.
