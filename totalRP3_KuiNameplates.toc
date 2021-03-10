@@ -1,4 +1,4 @@
-## Interface: 90002
+## Interface: 90005
 ## Author: Ellypse (@EllypseCelwe)
 ## Version: @project-version@
 ## Title: Total RP 3: Kui |cff9966ffNameplates|r module
